@@ -1,3 +1,258 @@
 .core-layout__viewport {
   padding-top: 4rem;
 }
+
+.grid{
+  border: 1px solid #c2c2c2;
+
+  background-color: lightgray;
+  min-height: 200px;
+  width: 100%;
+}
+
+.grid-row{
+  .room{
+    padding: 5px;
+    color: white;
+    background-color: darkgray;
+    font-size: 18px;
+  }
+  display: inline-block;
+  width: 100%;
+  .interval{
+    width: 10%;
+    font-size: 18px;
+    float: left;
+  }
+  .events{
+    width: 90%;
+    float: left;
+    .event{
+      float: left;
+      cursor: pointer;
+      .body{
+        padding: 10px;
+        text-align: left;
+        min-height: 140px;
+
+        .name{
+          font-weight: bold;
+          font-size: 18px;
+          text-align: center;
+        }
+
+      }
+      .break{
+        .room{
+          display: none;
+        }
+        .body{
+          background-color: white;
+        }
+      }
+    }
+  }
+}
+
+.day-title{
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: slategray;
+  color: white;
+  font-size: 35px;
+}
+
+@mixin theme($color, $color2) {
+  .grid{
+    background-color: lighten($color, 40);
+  }
+  .day-title{
+    background-color: $color;
+    color: white;
+  }
+  .grid-row{
+    .interval{
+      color: darken($color,20);
+    }
+  }
+  .events{
+    .event:nth-child(odd) {
+      background: lighten($color,20);
+    }
+
+    .event:nth-child(even) {
+      background: lighten($color,30);
+    }
+    .event{
+      .body{
+        .name{
+          color: $color2;
+        }
+      }
+    }
+  }
+}
+
+.pink{
+  @include theme(#ab7ba0, #bf71b3);
+}
+
+.green{
+  @include theme(#658049, #00540e);
+}
+
+.blue{
+  @include theme(#6a95ae, #202f54);
+}
+
+.purple{
+  @include theme(#8a64ae, #431754);
+}
+
+.yellow{
+  @include theme(#adae7c, #544d26);
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+.react-contextmenu {
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 16px;
+  color: #373a3c;
+  text-align: left;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  outline: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.react-contextmenu.react-contextmenu--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.react-contextmenu-item {
+  padding: 3px 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #373a3c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.react-contextmenu-item.react-contextmenu-item--active,
+.react-contextmenu-item:hover {
+  color: #fff;
+  background-color: #20a0ff;
+  border-color: #20a0ff;
+  text-decoration: none;
+}
+
+.react-contextmenu-item.react-contextmenu-item--disabled,
+.react-contextmenu-item.react-contextmenu-item--disabled:hover {
+  color: #878a8c;
+  background-color: transparent;
+  border-color: rgba(0,0,0,.15);
+}
+
+.react-contextmenu-item--divider {
+  margin-bottom: 3px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  cursor: inherit;
+}
+.react-contextmenu-item--divider:hover {
+  background-color: transparent;
+  border-color: rgba(0,0,0,.15);
+}
+
+.react-contextmenu-item.react-contextmenu-submenu {
+  padding: 0;
+}
+
+.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item {
+}
+
+.react-contextmenu-item.react-contextmenu-submenu > .react-contextmenu-item:after {
+  content: "▶";
+  display: inline-block;
+  position: absolute;
+  right: 7px;
+}
+
+.example-multiple-targets::after {
+  content: attr(data-count);
+  display: block;
+}

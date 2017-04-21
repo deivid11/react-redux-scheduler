@@ -1,0 +1,8 @@
+export const CHANGE_THEME = 'CHANGE_THEME'
+export const CHANGE_DAY = 'CHANGE_DAY'
+export const CLOSE_MODAL = 'CLOSE_MODAL'
+export const OPEN_EVENT_MODAL = 'OPEN_EVENT_MODAL'
+export const ADD_EVENT = 'ADD_EVENT'
+export const REMOVE_EVENT = 'REMOVE_EVENT'
+export const ADD_INTERVAL = 'ADD_INTERVAL'
+export const REMOVE_INTERVAL = 'REMOVE_INTERVAL'

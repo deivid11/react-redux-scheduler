@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { browserHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
+import Scheduler from '../routes/Scheduler/containers/SchedulerContainer'
+
 
 class AppContainer extends Component {
   static propTypes = {
@@ -15,7 +17,6 @@ class AppContainer extends Component {
 
   render () {
     const { routes, store } = this.props
-
     return (
       <Provider store={store}>
         <div style={{ height: '100%' }}>
